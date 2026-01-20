@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useState, ReactNode } from "react";
 import { AppSidebar } from "./AppSidebar";
 
-export function AppLayout() {
+interface AppLayoutProps {
+  children: ReactNode;
+}
+
+export default function AppLayout({ children }: AppLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -11,7 +14,7 @@ export function AppLayout() {
       
       {/* Main content area */}
       <main className="lg:pl-60 min-h-screen">
-        <Outlet />
+        {children}
       </main>
     </div>
   );
