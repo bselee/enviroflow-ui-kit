@@ -12,6 +12,17 @@ import logoHybrid4 from "@/assets/logo-hybrid-4.png";
 import logoFinal1 from "@/assets/logo-final-1.png";
 import logoFinal2 from "@/assets/logo-final-2.png";
 import logoFinal3 from "@/assets/logo-final-3.png";
+import logoChip1 from "@/assets/logo-chip-1.png";
+import logoChip2 from "@/assets/logo-chip-2.png";
+import logoChip3 from "@/assets/logo-chip-3.png";
+import logoChip4 from "@/assets/logo-chip-4.png";
+
+const chips = [
+  { src: logoChip1, name: "Chip 1", desc: "Circuit board + leaves" },
+  { src: logoChip2, name: "Chip 2", desc: "CPU pins + plant" },
+  { src: logoChip3, name: "Chip 3", desc: "Minimal chip + leaves" },
+  { src: logoChip4, name: "Chip 4", desc: "Outlined chip frame" },
+];
 
 const finals = [
   { src: logoFinal1, name: "Final 1", desc: "Flat light blue, clean" },
@@ -42,12 +53,28 @@ export default function LogoGallery() {
       <h1 className="text-3xl font-bold text-foreground mb-2">EnviroFlow Logo Concepts</h1>
       <p className="text-muted-foreground mb-8">Tell me which one you like!</p>
       
-      <h2 className="text-xl font-semibold text-primary mb-4">🎯 Final Options (Rounded Square)</h2>
+      <h2 className="text-xl font-semibold text-primary mb-4">🔌 Chip + Leaf (Tech Meets Nature)</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+        {chips.map((logo) => (
+          <div 
+            key={logo.name}
+            className="bg-card border-2 border-primary rounded-xl p-4 hover:shadow-xl transition-all cursor-pointer"
+          >
+            <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-3">
+              <img src={logo.src} alt={logo.name} className="w-full h-full object-contain p-2" />
+            </div>
+            <h3 className="font-semibold text-foreground">{logo.name}</h3>
+            <p className="text-sm text-muted-foreground">{logo.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 className="text-lg font-semibold text-muted-foreground mb-4">Rounded Square Options</h2>
       <div className="grid grid-cols-3 gap-6 mb-10">
         {finals.map((logo) => (
           <div 
             key={logo.name}
-            className="bg-card border-2 border-primary rounded-xl p-4 hover:shadow-xl transition-all cursor-pointer"
+            className="bg-card border border-border rounded-xl p-4 hover:shadow-xl transition-all cursor-pointer"
           >
             <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-3">
               <img src={logo.src} alt={logo.name} className="w-full h-full object-contain p-2" />
@@ -70,22 +97,6 @@ export default function LogoGallery() {
             </div>
             <h3 className="font-medium text-sm text-foreground">{logo.name}</h3>
             <p className="text-xs text-muted-foreground">{logo.desc}</p>
-          </div>
-        ))}
-      </div>
-
-      <h2 className="text-lg font-semibold text-muted-foreground mb-4">Original Concepts</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-        {hybrids.map((logo) => (
-          <div 
-            key={logo.name}
-            className="bg-card border-2 border-primary/30 rounded-xl p-4 hover:shadow-lg hover:border-primary transition-all cursor-pointer"
-          >
-            <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-3">
-              <img src={logo.src} alt={logo.name} className="w-full h-full object-contain p-2" />
-            </div>
-            <h3 className="font-semibold text-foreground">{logo.name}</h3>
-            <p className="text-sm text-muted-foreground">{logo.desc}</p>
           </div>
         ))}
       </div>
