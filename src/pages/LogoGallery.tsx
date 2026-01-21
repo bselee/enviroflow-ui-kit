@@ -1,3 +1,5 @@
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logoConcept1 from "@/assets/logo-concept-1.png";
 import logoConcept2 from "@/assets/logo-concept-2.png";
 import logoConcept3 from "@/assets/logo-concept-3.png";
@@ -17,6 +19,8 @@ import logoChip2 from "@/assets/logo-chip-2.png";
 import logoChip3 from "@/assets/logo-chip-3.png";
 import logoChip4 from "@/assets/logo-chip-4.png";
 import logoChip5 from "@/assets/logo-chip-5.png";
+import logoFull from "@/assets/logo-full.png";
+import logoIcon from "@/assets/logo-icon.png";
 
 const chips = [
   { src: logoChip5, name: "Chip 5 ⭐", desc: "Simplified chip + clean leaves" },
@@ -50,10 +54,42 @@ const originals = [
 ];
 
 export default function LogoGallery() {
+  const handleDownload = (src: string, filename: string) => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-background p-8">
       <h1 className="text-3xl font-bold text-foreground mb-2">EnviroFlow Logo Concepts</h1>
       <p className="text-muted-foreground mb-8">Tell me which one you like!</p>
+
+      {/* Official Logo Download Section */}
+      <div className="mb-10 p-6 bg-primary/5 border-2 border-primary rounded-xl">
+        <h2 className="text-xl font-semibold text-primary mb-4">✅ Official Logo - Chip 5 + Lettering</h2>
+        <div className="flex flex-col md:flex-row gap-6 items-center">
+          <div className="bg-white rounded-xl p-6 shadow-lg">
+            <img src={logoFull} alt="EnviroFlow Full Logo" className="h-24 object-contain" />
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow-lg">
+            <img src={logoIcon} alt="EnviroFlow Icon" className="h-16 w-16 object-contain" />
+          </div>
+          <div className="flex flex-col gap-3">
+            <Button onClick={() => handleDownload(logoFull, 'enviroflow-logo-full.png')} className="gap-2">
+              <Download className="h-4 w-4" />
+              Download Full Logo
+            </Button>
+            <Button variant="outline" onClick={() => handleDownload(logoIcon, 'enviroflow-icon.png')} className="gap-2">
+              <Download className="h-4 w-4" />
+              Download Icon Only
+            </Button>
+          </div>
+        </div>
+      </div>
       
       <h2 className="text-xl font-semibold text-primary mb-4">🔌 Chip + Leaf (Tech Meets Nature)</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
