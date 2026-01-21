@@ -35,7 +35,9 @@ const App = () => (
           <Route path="/automations/builder" element={<AppLayout><WorkflowBuilderPage /></AppLayout>} />
           <Route path="/automations/builder/:id" element={<AppLayout><WorkflowBuilderPage /></AppLayout>} />
           <Route path="/settings" element={<AppLayout><SettingsPage /></AppLayout>} />
+          {/* Branding / downloads */}
           <Route path="/logos" element={<LogoGallery />} />
+          <Route path="/logo" element={<LogoGallery />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
