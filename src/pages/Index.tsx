@@ -8,14 +8,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-10 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <img
-              src={logoFull}
-              alt="EnviroFlow"
-              className="block w-auto flex-none"
-              style={{ height: 140 }}
-            />
+            <img src={logoFull} alt="EnviroFlow" className="h-12 w-auto" />
           </div>
           <div className="flex items-center gap-4">
             <Link to="/login">
