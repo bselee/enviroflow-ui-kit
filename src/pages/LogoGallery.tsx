@@ -54,13 +54,21 @@ const originals = [
 ];
 
 export default function LogoGallery() {
-  const handleDownload = (src: string, filename: string) => {
-    const link = document.createElement('a');
-    link.href = src;
+  const handleDownload = async (src: string, filename: string) => {
+    // Fetch as a Blob so browsers consistently honor the requested filename.
+    const res = await fetch(src);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
     link.download = filename;
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    link.remove();
+
+    // Cleanup
+    setTimeout(() => URL.revokeObjectURL(url), 0);
   };
 
   return (
@@ -73,20 +81,35 @@ export default function LogoGallery() {
         <h2 className="text-xl font-semibold text-primary mb-4">✅ Official Logo - Chip 5 + Lettering</h2>
         <div className="flex flex-col md:flex-row gap-6 items-center">
           <div className="bg-white rounded-xl p-6 shadow-lg">
-            <img src={logoFull} alt="EnviroFlow Full Logo" className="h-24 object-contain" />
+            <img
+              src={logoFull}
+              alt="EnviroFlow Full Logo"
+              className="h-28 sm:h-36 md:h-44 max-w-full object-contain"
+            />
           </div>
           <div className="bg-white rounded-xl p-4 shadow-lg">
-            <img src={logoIcon} alt="EnviroFlow Icon" className="h-16 w-16 object-contain" />
+            <img
+              src={logoIcon}
+              alt="EnviroFlow Icon"
+              className="h-20 w-20 sm:h-24 sm:w-24 object-contain"
+            />
           </div>
           <div className="flex flex-col gap-3">
-            <Button onClick={() => handleDownload(logoFull, 'enviroflow-logo-full.png')} className="gap-2">
+            <Button onClick={() => void handleDownload(logoFull, "enviroflow-logo-full.png")} className="gap-2">
               <Download className="h-4 w-4" />
               Download Full Logo
             </Button>
-            <Button variant="outline" onClick={() => handleDownload(logoIcon, 'enviroflow-icon.png')} className="gap-2">
+            <Button
+              variant="outline"
+              onClick={() => void handleDownload(logoIcon, "enviroflow-icon.png")}
+              className="gap-2"
+            >
               <Download className="h-4 w-4" />
               Download Icon Only
             </Button>
+            <p className="text-sm text-muted-foreground">
+              Preview is sized for the page; downloads keep the original file resolution.
+            </p>
           </div>
         </div>
       </div>
