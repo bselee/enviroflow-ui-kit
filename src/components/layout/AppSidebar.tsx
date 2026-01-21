@@ -7,8 +7,8 @@ import {
   LogOut,
   Menu,
   X,
-  Leaf,
 } from "lucide-react";
+import logoIcon from "@/assets/logo-icon.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -48,9 +48,7 @@ export function AppSidebar({ isOpen, onToggle }: AppSidebarProps) {
         {/* Logo */}
         <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <Leaf className="h-5 w-5 text-primary-foreground" />
-            </div>
+            <img src={logoIcon} alt="EnviroFlow" className="h-8 w-8 rounded-lg" />
             <span className="text-lg font-semibold">EnviroFlow</span>
           </div>
           <Button
