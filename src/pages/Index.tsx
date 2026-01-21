@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Leaf, Zap, BarChart3, Workflow } from "lucide-react";
+import { Zap, BarChart3, Workflow } from "lucide-react";
+import logoIcon from "@/assets/logo-icon.png";
 
 const Index = () => {
   return (
@@ -9,9 +10,7 @@ const Index = () => {
       <header className="border-b border-border bg-white">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <Leaf className="h-5 w-5 text-primary-foreground" />
-            </div>
+            <img src={logoIcon} alt="EnviroFlow" className="h-8 w-8 rounded-lg" />
             <span className="text-xl font-semibold text-foreground">EnviroFlow</span>
           </div>
           <div className="flex items-center gap-4">
