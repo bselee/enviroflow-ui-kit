@@ -13,7 +13,8 @@ const Index = () => {
             <img
               src={logoFull}
               alt="EnviroFlow"
-              className="h-16 w-auto sm:h-20"
+              className="block w-auto"
+              style={{ height: 96 }}
             />
           </div>
           <div className="flex items-center gap-4">
