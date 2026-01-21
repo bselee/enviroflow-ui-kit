@@ -16,8 +16,10 @@ import logoChip1 from "@/assets/logo-chip-1.png";
 import logoChip2 from "@/assets/logo-chip-2.png";
 import logoChip3 from "@/assets/logo-chip-3.png";
 import logoChip4 from "@/assets/logo-chip-4.png";
+import logoChip5 from "@/assets/logo-chip-5.png";
 
 const chips = [
+  { src: logoChip5, name: "Chip 5 ⭐", desc: "Simplified chip + clean leaves" },
   { src: logoChip1, name: "Chip 1", desc: "Circuit board + leaves" },
   { src: logoChip2, name: "Chip 2", desc: "CPU pins + plant" },
   { src: logoChip3, name: "Chip 3", desc: "Minimal chip + leaves" },
