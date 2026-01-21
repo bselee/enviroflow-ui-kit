@@ -10,7 +10,7 @@ const Index = () => {
       <header className="border-b border-border bg-white">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <img src={logoFull} alt="EnviroFlow" className="h-10" />
+            <img src={logoFull} alt="EnviroFlow" className="h-16" />
           </div>
           <div className="flex items-center gap-4">
             <Link to="/login">
