@@ -12,6 +12,7 @@ import ControllersPage from "./pages/ControllersPage";
 import AutomationsPage from "./pages/AutomationsPage";
 import WorkflowBuilderPage from "./pages/WorkflowBuilderPage";
 import SettingsPage from "./pages/SettingsPage";
+import LogoGallery from "./pages/LogoGallery";
 import AppLayout from "./components/layout/AppLayout";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/automations/builder" element={<AppLayout><WorkflowBuilderPage /></AppLayout>} />
           <Route path="/automations/builder/:id" element={<AppLayout><WorkflowBuilderPage /></AppLayout>} />
           <Route path="/settings" element={<AppLayout><SettingsPage /></AppLayout>} />
+          <Route path="/logos" element={<LogoGallery />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
